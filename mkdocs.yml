@@ -1,0 +1,21 @@
+site_name: DSP – Data Source Publication
+site_description: Open standard and SDK for publishing data source manifests.
+repo_url: https://github.com/your-org/dsp  # change to your URL
+
+nav:
+  - Overview: index.md
+  - Getting Started: getting-started.md
+  - Source Types Cookbook: source-types.md
+  - Registry Service: dsp-registry.md
+  - Examples: examples.md
+
+docs_dir: docs
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+
+markdown_extensions:
+  - toc:
+      permalink: true

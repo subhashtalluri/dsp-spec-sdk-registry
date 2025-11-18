@@ -1,0 +1,22 @@
+{
+  "version": "dsp-1.0",
+  "source_id": "stream_example",
+  "display_name": "Example Stream Source",
+  "connection": {
+    "type": "stream",
+    "driver": "kafka",
+    "endpoint": "kafka://broker1:9092"
+  },
+  "datasets": [
+    {
+      "dataset_id": "events.items",
+      "kind": "stream",
+      "physical_name": "events.items",
+      "fields": [
+        { "name": "event_id", "type": "string" },
+        { "name": "event_time", "type": "timestamp" },
+        { "name": "payload", "type": "json" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dsp-sdk"
+version = "0.1.0"
+description = "DSP (Data Source Publication) standard SDK with profiles for SQL, streams, APIs, files, and graphs."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [
+  { name = "DSP Contributors", email = "example@example.com" }
+]
+
+dependencies = [
+  "pydantic>=2.8.0",
+  "jsonschema>=4.22.0",
+  "sqlalchemy>=2.0.0"
+]
+
+[project.optional-dependencies]
+stream = ["fastavro>=1.9.0"]
+api = ["pyyaml>=6.0.0"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["dsp_sdk*"]
+
+[tool.setuptools.package-data]
+"dsp_sdk.schemas" = ["dsp-1.0.json"]

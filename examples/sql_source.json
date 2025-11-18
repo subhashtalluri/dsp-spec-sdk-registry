@@ -1,0 +1,22 @@
+{
+  "version": "dsp-1.0",
+  "source_id": "sql_example",
+  "display_name": "Example SQL Source",
+  "connection": {
+    "type": "sql",
+    "driver": "postgres",
+    "endpoint": "postgresql://example-host:5432/example_db"
+  },
+  "datasets": [
+    {
+      "dataset_id": "public.items",
+      "kind": "table",
+      "physical_name": "public.items",
+      "fields": [
+        { "name": "id", "type": "string" },
+        { "name": "created_at", "type": "timestamp" },
+        { "name": "value", "type": "decimal" }
+      ]
+    }
+  ]
+}

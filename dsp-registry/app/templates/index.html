@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}DSP Catalog – Sources{% endblock %}
+
+{% block content %}
+<h2>Sources</h2>
+
+{% if sources %}
+  <ul class="source-list">
+    {% for s in sources %}
+    <li>
+      <a href="/ui/sources/{{ s.source_id }}">
+        {{ s.display_name or s.source_id }}
+      </a>
+      <span class="source-meta">
+        ({{ s.connection.type }}{% if s.connection.driver %} / {{ s.connection.driver }}{% endif %})
+      </span>
+    </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No sources registered yet.</p>
+{% endif %}
+{% endblock %}

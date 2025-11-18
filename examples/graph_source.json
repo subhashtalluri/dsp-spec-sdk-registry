@@ -1,0 +1,31 @@
+{
+  "version": "dsp-1.0",
+  "source_id": "graph_example",
+  "display_name": "Example Graph Source",
+  "connection": {
+    "type": "graph",
+    "driver": "generic",
+    "endpoint": "graph://example-graph"
+  },
+  "datasets": [
+    {
+      "dataset_id": "nodes.example",
+      "kind": "graph_nodes",
+      "physical_name": "ExampleNode",
+      "fields": [
+        { "name": "id", "type": "string" },
+        { "name": "label", "type": "string" }
+      ]
+    },
+    {
+      "dataset_id": "edges.example",
+      "kind": "graph_edges",
+      "physical_name": "RELATES_TO",
+      "fields": [
+        { "name": "from_id", "type": "string" },
+        { "name": "to_id", "type": "string" },
+        { "name": "weight", "type": "float" }
+      ]
+    }
+  ]
+}

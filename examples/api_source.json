@@ -1,0 +1,22 @@
+{
+  "version": "dsp-1.0",
+  "source_id": "api_example",
+  "display_name": "Example API Source",
+  "connection": {
+    "type": "api",
+    "driver": "rest",
+    "endpoint": "https://api.example.com"
+  },
+  "datasets": [
+    {
+      "dataset_id": "GET /items",
+      "kind": "api",
+      "physical_name": "GET /items",
+      "fields": [
+        { "name": "id", "type": "string" },
+        { "name": "label", "type": "string" },
+        { "name": "created_at", "type": "timestamp" }
+      ]
+    }
+  ]
+}

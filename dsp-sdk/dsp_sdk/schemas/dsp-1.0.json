@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dsp-spec.org/schemas/dsp-1.0.json",
+  "title": "DSP Source Manifest",
+  "description": "Standard manifest for describing data sources, datasets, and schemas.",
+  "type": "object",
+  "required": [
+    "version",
+    "source_id",
+    "connection",
+    "datasets"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "connection": {
+      "type": "object"
+    },
+    "datasets": {
+      "type": "array"
+    }
+  }
+}

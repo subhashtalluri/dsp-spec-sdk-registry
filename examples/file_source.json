@@ -1,0 +1,22 @@
+{
+  "version": "dsp-1.0",
+  "source_id": "file_example",
+  "display_name": "Example File Source",
+  "connection": {
+    "type": "file",
+    "driver": "s3",
+    "endpoint": "s3://example-bucket"
+  },
+  "datasets": [
+    {
+      "dataset_id": "objects.items",
+      "kind": "file",
+      "physical_name": "s3://example-bucket/items/",
+      "fields": [
+        { "name": "id", "type": "string" },
+        { "name": "timestamp", "type": "timestamp" },
+        { "name": "data", "type": "json" }
+      ]
+    }
+  ]
+}

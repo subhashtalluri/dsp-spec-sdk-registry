@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}DSP Catalog – {{ source.display_name or source.source_id }}{% endblock %}
+
+{% block content %}
+<a href="/ui">&larr; Back to all sources</a>
+
+<h2>{{ source.display_name or source.source_id }}</h2>
+<p><strong>Source ID:</strong> {{ source.source_id }}</p>
+<p><strong>Connection:</strong> {{ source.connection.type }}{% if source.connection.driver %} / {{ source.connection.driver }}{% endif %}</p>
+{% if source.description %}
+<p><strong>Description:</strong> {{ source.description }}</p>
+{% endif %}
+{% if source.labels %}
+<p><strong>Labels:</strong> {{ ", ".join(source.labels) }}</p>
+{% endif %}
+
+<h3>Datasets ({{ source.datasets|length }})</h3>
+
+{% for ds in source.datasets %}
+<div class="dataset-card">
+  <h4>{{ ds.display_name or ds.dataset_id }}</h4>
+  <p class="dataset-id"><strong>ID:</strong> {{ ds.dataset_id }}</p>
+  <p class="dataset-kind"><strong>Kind:</strong> {{ ds.kind }}</p>
+  {% if ds.physical_name %}
+  <p><strong>Physical:</strong> {{ ds.physical_name }}</p>
+  {% endif %}
+  {% if ds.semantics %}
+    <p>
+      {% if ds.semantics.domain %}
+        <strong>Domain:</strong> {{ ds.semantics.domain }} &nbsp;
+      {% endif %}
+      {% if ds.semantics.entity_type %}
+        <strong>Entity type:</strong> {{ ds.semantics.entity_type }} &nbsp;
+      {% endif %}
+      {% if ds.semantics.grain %}
+        <strong>Grain:</strong> {{ ds.semantics.grain }}
+      {% endif %}
+    </p>
+  {% endif %}
+
+  <details>
+    <summary>Fields ({{ ds.fields|length }})</summary>
+    <table class="fields-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Nullable</th>
+          <th>Business role</th>
+          <th>Tags</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for f in ds.fields %}
+        <tr>
+          <td>{{ f.name }}</td>
+          <td>{{ f.type }}</td>
+          <td>{{ "yes" if (f.nullable is not none and f.nullable) else "no" }}</td>
+          <td>
+            {% if f.semantics and f.semantics.business_role %}
+              {{ f.semantics.business_role }}
+            {% else %}
+              -
+            {% endif %}
+          </td>
+          <td>
+            {% if f.semantics and f.semantics.tags %}
+              {{ ", ".join(f.semantics.tags) }}
+            {% else %}
+              -
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </details>
+
+</div>
+{% endfor %}
+{% endblock %}

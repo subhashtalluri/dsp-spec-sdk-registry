@@ -1,0 +1,35 @@
+[
+  {
+    "name": "dsp_list_sources",
+    "description": "List DSP sources from the registry.",
+    "input_schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  {
+    "name": "dsp_get_manifest",
+    "description": "Fetch a DSP manifest for a given source_id.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "source_id": { "type": "string" }
+      },
+      "required": ["source_id"]
+    }
+  },
+  {
+    "name": "dsp_search_datasets",
+    "description": "Search datasets by dataset_id, field_name, or domain.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "dataset_id": { "type": "string" },
+        "field_name": { "type": "string" },
+        "domain": { "type": "string" }
+      },
+      "required": []
+    }
+  }
+]
