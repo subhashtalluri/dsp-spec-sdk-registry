@@ -1,6 +1,6 @@
 site_name: DSP – Data Source Publication
 site_description: Open standard and SDK for publishing data source manifests.
-repo_url: https://github.com/your-org/dsp  # change to your URL
+repo_url: https://github.com/subhashtalluri/dsp-spec-sdk-registry  # change to your URL
 
 nav:
   - Overview: index.md
