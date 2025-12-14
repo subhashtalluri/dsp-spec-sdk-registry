@@ -21,7 +21,9 @@ DSP does **not** move data.
 DSP does **not** replace cloud catalogs.  
 DSP standardizes metadata so humans, tools, and agents can reason about data **consistently and automatically**.
 
-## Documentation - https://subhashtalluri.github.io/dsp-spec-sdk-registry/
+## Documentation
+
+https://subhashtalluri.github.io/dsp-spec-sdk-registry/
 
 ---
 
